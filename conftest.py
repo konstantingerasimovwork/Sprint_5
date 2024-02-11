@@ -17,15 +17,6 @@ def browser():
     browser.quit()
 
 
-# @pytest.fixture(scope="function")
-# def generate_user_login_data():
-#     random_user = random.randint(100, 999)
-#     random_password = random.randint(100000, 999999)
-#     return {'name': 'Константин',
-#             'email': f'konstantin_gerasimov_5{random_user}@yandex.ru',
-#             'pass': f'{random_password}'}
-
-
 @pytest.fixture(scope="function")
 def registration(browser):
     user_data = generate_user_login_data()
