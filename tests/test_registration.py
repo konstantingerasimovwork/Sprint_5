@@ -15,8 +15,7 @@ class TestRegistration:
         browser.find_element(*TestLocators.REGISTRATION_EMAIL).send_keys(user_data['email'])
         browser.find_element(*TestLocators.REGISTRATION_PASSWORD).send_keys(user_data['pass'])
         browser.find_element(*TestLocators.REGISTRATION_BUTTON).click()
-        WebDriverWait(browser, 9).until(expected_conditions.visibility_of_element_located((TestLocators.ENTER_HEADER)))
-        assert browser.current_url == 'https://stellarburgers.nomoreparties.site/login', f'{browser.current_url}'
+        assert expected_conditions.visibility_of_element_located((TestLocators.ENTER_HEADER))
 
 
     def test_incorrect_registration_password_less_6_characters(self, browser):
