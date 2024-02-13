@@ -4,6 +4,7 @@
 * pytest
 * Selenium
 * ChromeDriver для Chrome
+* ChromeDriverManager
 
 ### Запуск тестов
 * pytest -v

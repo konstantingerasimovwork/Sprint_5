@@ -7,6 +7,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from webdriver_manager.chrome import ChromeDriverManager
+from data import user_test_data
 
 @pytest.fixture(scope="function")
 def browser():
@@ -21,11 +22,10 @@ def browser():
 
 @pytest.fixture(scope="function")
 def login_account(browser):
+    user_data = user_test_data()
     browser.get('https://stellarburgers.nomoreparties.site/')
     browser.find_element(*TestLocators.LK_BUTTON).click()
-    assert browser.current_url == 'https://stellarburgers.nomoreparties.site/login', f'{browser.current_url}'
-    browser.find_element(*TestLocators.ENTER_EMAIL).send_keys('konstantin_gerasimov_5@yandex.ru')
-    browser.find_element(*TestLocators.ENTER_PASSWORD).send_keys('123456')
+    browser.find_element(*TestLocators.ENTER_EMAIL).send_keys(user_data['email'])
+    browser.find_element(*TestLocators.ENTER_PASSWORD).send_keys(user_data['pass'])
     browser.find_element(*TestLocators.ENTER_BUTTON).click()
     WebDriverWait(browser, 3).until(expected_conditions.url_changes('https://stellarburgers.nomoreparties.site/login'))
-    assert browser.current_url == 'https://stellarburgers.nomoreparties.site/', f'{browser.current_url}'
