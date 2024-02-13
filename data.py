@@ -7,3 +7,7 @@ def generate_user_login_data():
     return {'name': 'Константин',
             'email': f'konstantin_gerasimov_5{random_user}@yandex.ru',
             'pass': f'{password}'}
+
+def user_test_data():
+    return {'email': 'konstantin_gerasimov_5@yandex.ru',
+            'pass': '123456'}

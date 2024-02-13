@@ -20,19 +20,6 @@ def browser():
 
 
 @pytest.fixture(scope="function")
-def registration(browser):
-    user_data = generate_user_login_data()
-    browser.get('https://stellarburgers.nomoreparties.site/register')
-    browser.find_element(*TestLocators.REGISTRATION_NAME).send_keys(user_data['name'])
-    browser.find_element(*TestLocators.REGISTRATION_EMAIL).send_keys(user_data['email'])
-    browser.find_element(*TestLocators.REGISTRATION_PASSWORD).send_keys(user_data['pass'])
-    browser.find_element(*TestLocators.REGISTRATION_BUTTON).click()
-    WebDriverWait(browser, 9).until(expected_conditions.visibility_of_element_located(TestLocators.ENTER_HEADER))
-    return user_data['email'], user_data['pass']
-    # browser.quit()
-
-
-@pytest.fixture(scope="function")
 def login_account(browser):
     browser.get('https://stellarburgers.nomoreparties.site/')
     browser.find_element(*TestLocators.LK_BUTTON).click()
