@@ -1,5 +1,4 @@
 import pytest
-from data import generate_user_login_data
 from locators import TestLocators
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -12,8 +11,6 @@ from data import user_test_data
 @pytest.fixture(scope="function")
 def browser():
     options = Options()
-    # service =
-    # service = Service(executable_path='/chromedriver')
     options.add_argument('--window-size=1920,1080')
     browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     yield browser
