@@ -1,7 +1,7 @@
 from locators import TestLocators
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
-from data import generate_user_login_data
+from helpers import generate_user_login_data
 
 
 class TestRegistration:
